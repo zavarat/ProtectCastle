@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/KojeomStudio/External_Assets/polyWorld/InGame.unity
+  isLoaded: 1
+  isActive: 1
