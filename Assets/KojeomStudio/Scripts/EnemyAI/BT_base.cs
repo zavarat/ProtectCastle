@@ -59,61 +59,91 @@ public class Sequence : CompositeNode
 
 public class MoveForTarget : Node
 {
-    public NavMeshAgent agent
+    public MonsterController monController
     {
-        set { _agent = value; }
+        set { _monController = value; }
     }
-    private NavMeshAgent _agent;
-    public Transform target
-    {
-        set { _target = value; }
-    }
-    private Transform _target;
+    private MonsterController _monController;
     public override bool Invoke()
     {
-        Debug.Log("Move for Target!");
-        _agent.destination = _target.position;
+        _monController.MoveForTarget();
         return true;
     }
-    
 }
 
-public class BT_base : MonoBehaviour {
-
-    private Sequence root = new Sequence();
-    private Selector selector = new Selector();
-    
-    [SerializeField]
-    private NavMeshAgent enemyAgent;
-    [SerializeField]
-    private Transform target;
-
-    private IEnumerator behaviorProcess;
-
-    // test start func
-	void Start () {
-        root.AddChild(selector);
-
-        behaviorProcess = BehaviorProcess();
-	}
-    public void StartBT()
+public class RotAroundTarget : Node
+{
+    public MonsterController monController
     {
-        StartCoroutine(behaviorProcess);
+        set { _monController = value; }
     }
-    public void StopBT()
+    private MonsterController _monController;
+    public override bool Invoke()
     {
-        StopCoroutine(behaviorProcess);
+        _monController.RotAroundTarget();
+        return true;
     }
 
-    private IEnumerator BehaviorProcess()
+}
+
+public class StartAttack : Node
+{
+    public MonsterController monController
     {
-        while (!root.Invoke())
-        {
-            Debug.Log("======================");
-            yield return new WaitForSeconds(1.0f);
-        }
-        Debug.Log("behavior process exit");
+        set { _monController = value; }
     }
-	
-	
+    private MonsterController _monController;
+    public override bool Invoke()
+    {
+        _monController.StartAttack();
+        return true;
+    }
+}
+public class StopAttack : Node
+{
+    public MonsterController monController
+    {
+        set { _monController = value; }
+    }
+    private MonsterController _monController;
+    public override bool Invoke()
+    {
+        _monController.StopAttack();
+        return true;
+    }
+}
+public class StopMoving : Node
+{
+    public MonsterController monController
+    {
+        set { _monController = value; }
+    }
+    private MonsterController _monController;
+    public override bool Invoke()
+    {
+        _monController.StopMoveForTarget();
+        return true;
+    }
+}
+
+public class IsTooCloseTarget : Node
+{
+    public MonsterController monController
+    {
+        set { _monController = value; }
+    }
+    private MonsterController _monController;
+    public override bool Invoke()
+    {
+        if (_monController.IsTooCloseTarget()) return true;
+        else return false;
+    }
+}
+
+public class IsDead : Node
+{
+    public override bool Invoke()
+    {
+        return false;
+    }
 }

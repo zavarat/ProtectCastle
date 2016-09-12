@@ -122,8 +122,6 @@
     <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Rim.shader" />
     <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Water.shader" />
     <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\WaterFree.shader" />
-    <None Include="Assets\KojeomStudio\Models\Baker House\Readme.txt" />
-    <None Include="Assets\KojeomStudio\Models\Cartoon lowpoly water well\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

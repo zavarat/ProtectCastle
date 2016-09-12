@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\KojeomStudio\Art\Texture\Planet Earth Free\SpinFree.cs" />
     <Compile Include="Assets\KojeomStudio\External_Assets\JSON\JSONObject.cs" />
     <Compile Include="Assets\KojeomStudio\External_Assets\JSON\JSONTemplates.cs" />
     <Compile Include="Assets\KojeomStudio\External_Assets\JSON\VectorTemplates.cs" />
@@ -92,6 +93,9 @@
     <Compile Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Scripts\Share\UVTextureAnimator.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\AttackController.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\EnemyAI\BT_base.cs" />
+    <Compile Include="Assets\KojeomStudio\Scripts\EnemyAI\BT_normalAI.cs" />
+    <Compile Include="Assets\KojeomStudio\Scripts\MonsterController.cs" />
+    <Compile Include="Assets\KojeomStudio\Scripts\MonsterStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\KojeomStudio\External_Assets\JSON\readme.txt" />
@@ -114,8 +118,6 @@
     <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Rim.shader" />
     <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Water.shader" />
     <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\WaterFree.shader" />
-    <None Include="Assets\KojeomStudio\Models\Baker House\Readme.txt" />
-    <None Include="Assets\KojeomStudio\Models\Cartoon lowpoly water well\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

@@ -11,10 +11,11 @@ public class AttackController : MonoBehaviour {
     private GameObject target;
     private Transform parentTrans;
     private IEnumerator attackProcess;
+    private bool isAttackNow = false;
 
     public int maxQuantity = 5;
     [Range(1.0f, 5.0f)]
-    public float attackIntervalTime = 1.0f;
+    public float attackIntervalTime;
 
 	public void Init () {
         attackProcess = AttackProcess();
@@ -40,24 +41,33 @@ public class AttackController : MonoBehaviour {
 	
     public void StartAttack()
     {
-        StartCoroutine(attackProcess);
+        if (isAttackNow == false)
+        {
+            StartCoroutine(attackProcess);
+            isAttackNow = true;
+        }
+        
     }
 
     public void StopAttack()
     {
         StopCoroutine(attackProcess);
+        isAttackNow = false;
     }
 
     private IEnumerator AttackProcess()
     {
         while (true)
         {
-            GameObject mis = missiles.Dequeue();
-            if((mis != null) && (!mis.activeSelf))
+            if(missiles.Count > 0)
             {
-                mis.transform.position = attacker.transform.position;
-                mis.SetActive(true);
-                missiles.Enqueue(mis);
+                GameObject mis = missiles.Dequeue();
+                if ((mis != null) && (!mis.activeSelf))
+                {
+                    mis.transform.position = attacker.transform.position;
+                    mis.SetActive(true);
+                    missiles.Enqueue(mis);
+                }
             }
             yield return new WaitForSeconds(attackIntervalTime);
         }
