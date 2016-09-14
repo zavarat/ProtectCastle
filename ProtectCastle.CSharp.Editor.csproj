@@ -122,6 +122,7 @@
     <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Rim.shader" />
     <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Water.shader" />
     <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\WaterFree.shader" />
+    <None Include="Assets\KojeomStudio\Models\PolyPlanets\shader\two_side_shader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

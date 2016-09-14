@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public class BT_normalAI : MonoBehaviour {
+public class BT_normalAI : BT_base {
     private Sequence root = new Sequence();
     private Selector selector = new Selector();
     private Sequence seqMovingAttack = new Sequence();
@@ -19,7 +19,7 @@ public class BT_normalAI : MonoBehaviour {
     private IEnumerator behaviorProcess;
     private MonsterController monController;
 
-    void Start()
+    public override void Init()
     {
         monController = gameObject.GetComponent<MonsterController>();
         monController.Init();
@@ -45,18 +45,17 @@ public class BT_normalAI : MonoBehaviour {
         seqMovingAttack.AddChild(startAttack);
 
         behaviorProcess = BehaviorProcess();
-        StartBT();
     }
-    public void StartBT()
+    public override void StartBT()
     {
         StartCoroutine(behaviorProcess);
     }
-    public void StopBT()
+    public override void StopBT()
     {
         StopCoroutine(behaviorProcess);
     }
 
-    private IEnumerator BehaviorProcess()
+    public override IEnumerator BehaviorProcess()
     {
         while (!root.Invoke())
         {

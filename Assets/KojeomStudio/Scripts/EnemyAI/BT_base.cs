@@ -147,3 +147,11 @@ public class IsDead : Node
         return false;
     }
 }
+
+public abstract class BT_base : MonoBehaviour
+{
+    public abstract void Init();
+    public abstract void StartBT();
+    public abstract void StopBT();
+    public abstract IEnumerator BehaviorProcess();
+}

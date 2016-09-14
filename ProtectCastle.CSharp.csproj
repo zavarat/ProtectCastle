@@ -95,7 +95,9 @@
     <Compile Include="Assets\KojeomStudio\Scripts\EnemyAI\BT_base.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\EnemyAI\BT_normalAI.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\MonsterController.cs" />
+    <Compile Include="Assets\KojeomStudio\Scripts\MonsterGenerator.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\MonsterStatus.cs" />
+    <Compile Include="Assets\KojeomStudio\Scripts\SpawnDataFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\KojeomStudio\External_Assets\JSON\readme.txt" />
@@ -118,6 +120,7 @@
     <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Rim.shader" />
     <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Water.shader" />
     <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\WaterFree.shader" />
+    <None Include="Assets\KojeomStudio\Models\PolyPlanets\shader\two_side_shader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
