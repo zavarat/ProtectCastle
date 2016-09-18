@@ -91,6 +91,9 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="JMOAssets">
+      <HintPath>Assets\KojeomStudio\External_Assets\JMO Assets\Editor\JMOAssets.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="ProtectCastle.CSharp.csproj">
@@ -99,29 +102,39 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\KojeomStudio\External_Assets\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
+    <Compile Include="Assets\KojeomStudio\External_Assets\JMO Assets\Cartoon FX\Editor\CFX_InspectorHelpEditor.cs" />
+    <Compile Include="Assets\KojeomStudio\External_Assets\JMO Assets\Cartoon FX\Editor\CFX_SpawnSystemEditor.cs" />
     <Compile Include="Assets\KojeomStudio\External_Assets\JSON\Editor\JSONChecker.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\KojeomStudio\External_Assets\JMO Assets\!JMO Assets Readme.txt" />
+    <None Include="Assets\KojeomStudio\External_Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
+    <None Include="Assets\KojeomStudio\External_Assets\JMO Assets\Cartoon FX\CartoonFX2 Readme.txt" />
+    <None Include="Assets\KojeomStudio\External_Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_WaterWiggle.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAdd_Alpha8.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Add.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Tint.shader" />
     <None Include="Assets\KojeomStudio\External_Assets\JSON\readme.txt" />
     <None Include="Assets\KojeomStudio\External_Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Readme.txt" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\DiffuseRim.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\DiffuseRimSpecular.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Distortion\Distortion.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Distortion\DistortionCullBack+1.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Distortion\DistortionCullOff.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Distortion\DistortionCutOut.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Distortion\DistortionCutOutBack.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Distortion\Free\FreeDistortionCullBack.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Distortion\Free\FreeDistortionCullOff.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Distortion\Free\FreeDistortionCutOut.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\GlowAdditive.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\GlowAdditiveSimple.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\GlowAdditiveTwoColor.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Particles.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Rim.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\Water.shader" />
-    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack\Shaders\WaterFree.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Readme.txt" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\DiffuseRim.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\DiffuseRimSpecular.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\Distortion\Distortion.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\Distortion\DistortionCullBack+1.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\Distortion\DistortionCullOff.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\Distortion\DistortionCutOut.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\Distortion\DistortionCutOutBack.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\Distortion\Free\FreeDistortionCullBack.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\Distortion\Free\FreeDistortionCullOff.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\Distortion\Free\FreeDistortionCutOut.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\GlowAdditive.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\GlowAdditiveSimple.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\GlowAdditiveTwoColor.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\Particles.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\Rim.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\Water.shader" />
+    <None Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Shaders\WaterFree.shader" />
     <None Include="Assets\KojeomStudio\Models\PolyPlanets\shader\two_side_shader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
