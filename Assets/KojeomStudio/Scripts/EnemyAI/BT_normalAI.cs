@@ -7,14 +7,15 @@ public class BT_normalAI : BT_base {
     private Sequence root = new Sequence();
     private Selector selector = new Selector();
     private Sequence seqMovingAttack = new Sequence();
-    private Sequence seqSmoothStop = new Sequence();
+    private Sequence seqDead = new Sequence();
 
     private MoveForTarget moveForTarget = new MoveForTarget();
     private StartAttack startAttack = new StartAttack();
     private StopAttack stopAttack = new StopAttack();
     private IsTooCloseTarget isTooClose = new IsTooCloseTarget();
-    private StopMoving stopMoving = new StopMoving();
     private RotAroundTarget rotTarget = new RotAroundTarget();
+    private IsDead isDead = new IsDead();
+    private DeadProcess deadProcess = new DeadProcess();
 
     private IEnumerator behaviorProcess;
     private MonsterController monController;
@@ -27,22 +28,24 @@ public class BT_normalAI : BT_base {
         root.AddChild(selector);
 
         selector.AddChild(seqMovingAttack);
+        selector.AddChild(seqDead);
 
         moveForTarget.monController = monController;
         startAttack.monController = monController;
         stopAttack.monController = monController;
         isTooClose.monController = monController;
-        stopMoving.monController = monController;
         rotTarget.monController = monController;
+        isDead.monController = monController;
+        deadProcess.monController = monController;
 
-        seqSmoothStop.AddChild(stopMoving);
-        seqSmoothStop.AddChild(stopAttack);
-
-        seqMovingAttack.AddChild(seqSmoothStop);
         seqMovingAttack.AddChild(isTooClose);
         seqMovingAttack.AddChild(moveForTarget);
         seqMovingAttack.AddChild(rotTarget);
         seqMovingAttack.AddChild(startAttack);
+
+        seqDead.AddChild(deadProcess);
+        seqDead.AddChild(stopAttack);
+        seqDead.AddChild(isDead);
 
         behaviorProcess = BehaviorProcess();
     }
@@ -59,8 +62,7 @@ public class BT_normalAI : BT_base {
     {
         while (!root.Invoke())
         {
-            Debug.Log("======================");
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForEndOfFrame();
         }
         Debug.Log("behavior process exit");
     }

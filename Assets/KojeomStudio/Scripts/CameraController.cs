@@ -15,21 +15,20 @@ public class CameraController : MonoBehaviour {
             if (Input.GetMouseButtonDown(0))
             {
                 startMousePos.x = Input.mousePosition.y;
-                startMousePos.z = Input.mousePosition.x;
+                startMousePos.y = Input.mousePosition.x;
             }
             else if (Input.GetMouseButton(0))
             {
                 endMousePos.x = Input.mousePosition.y;
-                endMousePos.z = Input.mousePosition.x;
+                endMousePos.y = Input.mousePosition.x;
                 rotAxis = endMousePos - startMousePos;
                 rotAxis.Normalize();
-                Debug.Log(rotAxis);
-                gameObject.transform.RotateAround(planetTrans.position, rotAxis, 100.0f * Time.deltaTime);
+                gameObject.transform.RotateAround(planetTrans.transform.position, rotAxis, 50.0f * Time.deltaTime);
             }
         }
         else if(RuntimePlatform.Android == Application.platform)
         {
-
+            // to do 
         }
     }
 }

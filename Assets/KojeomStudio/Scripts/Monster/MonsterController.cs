@@ -9,10 +9,10 @@ public class MonsterController : MonoBehaviour {
     private Transform target;
     private AttackController attackController;
 
-    private IEnumerator moveForTarget;
-    private bool isMovingForTarget = false;
-    private IEnumerator rotAroundTarget;
-    private bool isRotAroundTarget = false;
+    public delegate void DeadEffect();
+    public event DeadEffect OnDeadEffect;
+    [SerializeField]
+    private MonsterManager monMgr;
 
     public void Init()
     {
@@ -23,58 +23,37 @@ public class MonsterController : MonoBehaviour {
         attackController = gameObject.GetComponent<AttackController>();
         attackController.Init();
 
-        moveForTarget = MoveForTargetProcess();
-        rotAroundTarget = RotAroundTargetProcess();
+        OnDeadEffect += monMgr.DestroyProcess;
     }
 
+    public void BeHit()
+    {
+        if(hp > 0) hp--;
+        else isDead = true;
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
+    }
+
+    public void DeadPrcoess()
+    {
+        OnDeadEffect();
+    }
+    
     public void MoveForTarget()
     {
-        if(isMovingForTarget == false)
-        {
-            StartCoroutine(moveForTarget);
-            isMovingForTarget = true;
-        }
+        Vector3 dir = target.position - trans.position;
+        dir.Normalize();
+        trans.position += dir * Time.deltaTime;
     }
-    public void StopMoveForTarget()
-    {
-        StopCoroutine(moveForTarget);
-        isMovingForTarget = false;
-    }
-
-    private IEnumerator MoveForTargetProcess()
-    {
-        while (true)
-        {
-            Vector3 dir = target.position - trans.position;
-            dir.Normalize();
-            trans.position += dir * Time.deltaTime;
-            yield return null;
-        }
-    }
-
+    
     public void RotAroundTarget()
     {
-        if(isRotAroundTarget == false)
-        {
-            StartCoroutine(rotAroundTarget);
-            isRotAroundTarget = true;
-        }
+        trans.RotateAround(target.position, target.up, 1.0f);
     }
-    public void StopRotAroundTarget()
-    {
-        StopCoroutine(rotAroundTarget);
-        isRotAroundTarget = false;
-    }
-
-    private IEnumerator RotAroundTargetProcess()
-    {
-        while(true)
-        {
-            trans.RotateAround(target.position, target.up, 1.0f);
-            yield return null;
-        }
-    }
-
+    
     public bool IsTooCloseTarget()
     {
         float dist = Vector3.Distance(trans.position, target.position);

@@ -112,19 +112,6 @@ public class StopAttack : Node
         return true;
     }
 }
-public class StopMoving : Node
-{
-    public MonsterController monController
-    {
-        set { _monController = value; }
-    }
-    private MonsterController _monController;
-    public override bool Invoke()
-    {
-        _monController.StopMoveForTarget();
-        return true;
-    }
-}
 
 public class IsTooCloseTarget : Node
 {
@@ -140,11 +127,35 @@ public class IsTooCloseTarget : Node
     }
 }
 
-public class IsDead : Node
+public class DeadProcess : Node
 {
+    public MonsterController monController
+    {
+        set { _monController = value; }
+    }
+    private MonsterController _monController;
     public override bool Invoke()
     {
-        return false;
+        _monController.DeadPrcoess();
+        return true;
+    }
+}
+
+public class IsDead : Node
+{
+    public MonsterController monController
+    {
+        set { _monController = value; }
+    }
+    private MonsterController _monController;
+    public override bool Invoke()
+    {
+        if (_monController.IsDead())
+        {
+            return true;
+        }
+        else
+            return false;
     }
 }
 

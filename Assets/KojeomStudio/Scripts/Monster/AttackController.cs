@@ -46,7 +46,6 @@ public class AttackController : MonoBehaviour {
             StartCoroutine(attackProcess);
             isAttackNow = true;
         }
-        
     }
 
     public void StopAttack()

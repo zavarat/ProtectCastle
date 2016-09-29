@@ -17,7 +17,7 @@ public class SpawnDataFile : MonoBehaviour {
 
     public void Init()
     {
-        spawnText = Resources.Load("textAsset/data") as TextAsset;
+        spawnText = Resources.Load("textAsset/spawnDataSheet") as TextAsset;
         spawnJsonObj = new JSONObject(spawnText.text);
         AccessData(spawnJsonObj);
     }

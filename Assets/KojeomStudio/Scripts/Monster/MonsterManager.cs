@@ -11,9 +11,11 @@ public class MonsterManager : MonoBehaviour {
     }
     [SerializeField]
     private GameObject destroyEffect;
-    public GameObject GetDestroyEffect()
+    public void DestroyProcess()
     {
-        return destroyEffect;
+        monsterPrefab.SetActive(false);
+        destroyEffect.transform.position = monsterPrefab.transform.position;
+        destroyEffect.SetActive(true);
     }
     [SerializeField]
     private GameObject createEffect;

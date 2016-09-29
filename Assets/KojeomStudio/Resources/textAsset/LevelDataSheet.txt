@@ -1,0 +1,5 @@
+[
+{"LevelName":"1", "TotalUnit":"5",  "ReSpawnSeconds": "5"},
+{"LevelName":"2", "TotalUnit":"7", "ReSpawnSeconds": "4"},
+{"LevelName":"3", "TotalUnit":"9", "ReSpawnSeconds": "3"}
+]
