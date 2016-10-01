@@ -12,14 +12,6 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 {
 	// If true, deactivate the object instead of destroying it
 	public bool OnlyDeactivate;
-
-    private MonsterGenerator monGenerator;
-
-    void Start()
-    {
-        monGenerator = GameObject.FindGameObjectWithTag("monsterGenerator").GetComponent<MonsterGenerator>();
-    }
-
     void OnEnable()
 	{
         StartCoroutine("CheckIfAlive");
@@ -39,7 +31,6 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 						this.gameObject.SetActiveRecursively(false);
 					#else
                         {
-                        monGenerator.Sailing();
                         this.gameObject.SetActive(false);
                         
                     }

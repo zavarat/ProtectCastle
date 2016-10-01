@@ -239,20 +239,21 @@
     <Compile Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Scripts\Share\RandomRotate.cs" />
     <Compile Include="Assets\KojeomStudio\External_Assets\Realistic Effects Pack_(1.0)\Scripts\Share\UVTextureAnimator.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\CameraController.cs" />
+    <Compile Include="Assets\KojeomStudio\Scripts\CoinManager.cs" />
+    <Compile Include="Assets\KojeomStudio\Scripts\CoinTextEffect.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\EnemyAI\BT_base.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\EnemyAI\BT_normalAI.cs" />
-    <Compile Include="Assets\KojeomStudio\Scripts\GameLevelDataFile.cs" />
-    <Compile Include="Assets\KojeomStudio\Scripts\GameManager.cs" />
-    <Compile Include="Assets\KojeomStudio\Scripts\GameTimer.cs" />
-    <Compile Include="Assets\KojeomStudio\Scripts\InGameUIManager.cs" />
+    <Compile Include="Assets\KojeomStudio\Scripts\Game\GameLevelDataFile.cs" />
+    <Compile Include="Assets\KojeomStudio\Scripts\Game\GameManager.cs" />
+    <Compile Include="Assets\KojeomStudio\Scripts\Game\GameTimer.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\Monster\ActivateController.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\Monster\AttackController.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\Monster\MonsterController.cs" />
-    <Compile Include="Assets\KojeomStudio\Scripts\Monster\MonsterEffectController.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\Monster\MonsterGenerator.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\Monster\MonsterManager.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\Monster\SpawnDataFile.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\PlayerAttackController.cs" />
+    <Compile Include="Assets\KojeomStudio\Scripts\UI\InGameUIManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\KojeomStudio\External_Assets\JMO Assets\!JMO Assets Readme.txt" />

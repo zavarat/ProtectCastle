@@ -9,14 +9,13 @@ public class MonsterGenerator : MonoBehaviour {
     private Transform monsterBucket;
     [SerializeField]
     private GameObject monsterInfos;
-    private Queue<MonsterManager> monsters = new Queue<MonsterManager>();
-    private Queue<MonsterManager> preparedMonsters = new Queue<MonsterManager>();
+    private Queue<MonsterManager> preparedMonsterPool = new Queue<MonsterManager>();
     
     private Queue<int> randomIdxs = new Queue<int>();
 
     [Range(1, 100)]
     public int maxSpawnNum = 1;
-
+    
 	public void Init () {
         spawnDataFile.Init();
         NoDupRandomIdx(spawnDataFile.countCoords, maxSpawnNum);
@@ -27,10 +26,12 @@ public class MonsterGenerator : MonoBehaviour {
             GameObject monster = Instantiate(monsterInfos,
                 spawnDataFile.spawnCoordinates[randIdx],
                 new Quaternion(0, 0, 0, 0)) as GameObject;
+            monster.name += "_" + idx;
             monster.transform.parent = monsterBucket;
-            BT_base bt_AI = monster.GetComponent<MonsterManager>().GetMonsterPrefab().GetComponent<BT_base>();
-            bt_AI.Init();
-            monsters.Enqueue(monster.GetComponent<MonsterManager>());
+            monster.GetComponent<MonsterManager>().Init();
+            monster.GetComponent<MonsterManager>().OnAfterCreate += Sailing;
+            monster.GetComponent<MonsterManager>().OnAfterDestroy += RePrepareMonster;
+            preparedMonsterPool.Enqueue(monster.GetComponent<MonsterManager>());
         }
 
 	}
@@ -43,11 +44,9 @@ public class MonsterGenerator : MonoBehaviour {
     {
         HashSet<int> randomIdxSet = new HashSet<int>();
         int[] temp;
-        int seedStep = 1;
         while (randomIdxSet.Count < maxIdx)
         {
-            Random.InitState(seedStep);
-            seedStep++;
+            Random.InitState(Random.Range(1, 10));
             randomIdxSet.Add(Random.Range(0, randomRange));
         }
         temp = new int[randomIdxSet.Count];
@@ -60,20 +59,17 @@ public class MonsterGenerator : MonoBehaviour {
         }
     }
 
+    private void RePrepareMonster(MonsterManager monMgr)
+    {
+        preparedMonsterPool.Enqueue(monMgr);
+    }
+
     public void PrepareSailing(int spawnNum)
     {
-        for(int i = 0; i < spawnNum; ++i)
+        for (int i = 0; i < spawnNum; ++i)
         {
-            if (monsters.Count == 0) return;
-            MonsterManager preparedMon = monsters.Dequeue();
-            if (preparedMon.GetMonsterPrefab().activeSelf == true)
-            {
-                monsters.Enqueue(preparedMon);
-                continue;
-            }
-            preparedMonsters.Enqueue(preparedMon);
-            monsters.Enqueue(preparedMon);
-
+            if (preparedMonsterPool.Count == 0) return;
+            MonsterManager preparedMon = preparedMonsterPool.Dequeue();
             int randIdx = randomIdxs.Dequeue();
             randomIdxs.Enqueue(randIdx);
             preparedMon.GetMonsterPrefab().transform.position = spawnDataFile.spawnCoordinates[randIdx];
@@ -82,13 +78,10 @@ public class MonsterGenerator : MonoBehaviour {
         }
     }
 
-	public void Sailing()
+    public void Sailing(MonsterManager preparedMon)
     {
-        if(preparedMonsters.Count > 0)
-        {
-            MonsterManager preparedMon = preparedMonsters.Dequeue();
-            preparedMon.GetMonsterPrefab().SetActive(true);
-            preparedMon.GetMonsterPrefab().GetComponent<BT_base>().StartBT();
-        }
+        Debug.Log("Sailing Start");
+        preparedMon.GetMonsterPrefab().SetActive(true);
+        preparedMon.StartMonsterAI();
     }
 }

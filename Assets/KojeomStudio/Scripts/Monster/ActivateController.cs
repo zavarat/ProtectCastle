@@ -5,13 +5,9 @@ public class ActivateController : MonoBehaviour {
     // If true, deactivate the object instead of destroying it
     public bool OnlyDeactivate;
     public bool isCreateEffect;
-    private MonsterGenerator monGenerator;
-
-    void Start()
-    {
-        monGenerator = GameObject.FindGameObjectWithTag("monsterGenerator").GetComponent<MonsterGenerator>();
-    }
-
+    [SerializeField]
+    private MonsterManager monMgr;
+    
     void OnEnable()
     {
         StartCoroutine("CheckIfAlive");
@@ -33,7 +29,7 @@ public class ActivateController : MonoBehaviour {
                     {
                         if (isCreateEffect)
                         {
-                            monGenerator.Sailing();
+                            monMgr.CreateProcess();
                         }
                         this.gameObject.SetActive(false);
 

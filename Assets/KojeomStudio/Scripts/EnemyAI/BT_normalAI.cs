@@ -46,11 +46,10 @@ public class BT_normalAI : BT_base {
         seqDead.AddChild(deadProcess);
         seqDead.AddChild(stopAttack);
         seqDead.AddChild(isDead);
-
-        behaviorProcess = BehaviorProcess();
     }
     public override void StartBT()
     {
+        behaviorProcess = BehaviorProcess();
         StartCoroutine(behaviorProcess);
     }
     public override void StopBT()
@@ -60,6 +59,7 @@ public class BT_normalAI : BT_base {
 
     public override IEnumerator BehaviorProcess()
     {
+        Debug.Log("BehaviorProcess Start!!");
         while (!root.Invoke())
         {
             yield return new WaitForEndOfFrame();

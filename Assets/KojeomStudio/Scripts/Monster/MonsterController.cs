@@ -3,7 +3,8 @@ using System.Collections;
 
 public class MonsterController : MonoBehaviour {
     [Range(0, 5)]
-    public int hp;
+    public int maxHP;
+    private int curHp;
     private Transform trans;
     private bool isDead;
     private Transform target;
@@ -16,7 +17,7 @@ public class MonsterController : MonoBehaviour {
 
     public void Init()
     {
-        hp = 1;
+        curHp = maxHP;
         isDead = false;
         trans = gameObject.transform;
         target = GameObject.FindGameObjectWithTag("target").transform;
@@ -26,9 +27,15 @@ public class MonsterController : MonoBehaviour {
         OnDeadEffect += monMgr.DestroyProcess;
     }
 
+    public void Revive()
+    {
+        curHp = maxHP;
+        isDead = false;
+    }
+
     public void BeHit()
     {
-        if(hp > 0) hp--;
+        if(curHp > 0) curHp--;
         else isDead = true;
     }
 
