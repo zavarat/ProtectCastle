@@ -17,4 +17,11 @@ public class InGameUIManager : MonoBehaviour {
     [SerializeField]
     private UISprite spr_coin;
     public UISprite GetCoinSpr() { return spr_coin; }
+
+    [SerializeField]
+    private UILabel lbl_planetCurHP;
+    public UILabel GetPlanetCurHpLbl() { return lbl_planetCurHP; }
+    [SerializeField]
+    private UILabel lbl_planetMaxHP;
+    public UILabel GetPlanetMaxHpLbl() { return lbl_planetMaxHP; }
 }

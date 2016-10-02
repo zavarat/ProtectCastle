@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
     private InGameUIManager inGameUIMgr;
     [SerializeField]
     private CoinManager coinMgr;
+    [SerializeField]
+    private PlanetManager planetMgr;
 
     private IEnumerator levelController;
     private IEnumerator respawnPrcoess;
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour {
         gameTimer.InitGameTimer();
         levelDataFile.Init();
         coinMgr.Init();
+        planetMgr.Init();
         monGenerator.Init();
 
         levelController = GameLevelController();

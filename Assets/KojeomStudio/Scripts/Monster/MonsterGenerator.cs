@@ -44,9 +44,9 @@ public class MonsterGenerator : MonoBehaviour {
     {
         HashSet<int> randomIdxSet = new HashSet<int>();
         int[] temp;
+        Random.InitState(Random.Range(1, 10));
         while (randomIdxSet.Count < maxIdx)
         {
-            Random.InitState(Random.Range(1, 10));
             randomIdxSet.Add(Random.Range(0, randomRange));
         }
         temp = new int[randomIdxSet.Count];

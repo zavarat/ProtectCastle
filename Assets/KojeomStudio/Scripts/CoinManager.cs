@@ -11,7 +11,7 @@ public class CoinManager : MonoBehaviour {
     private Transform effectBucket;
     private Queue<CoinTextEffect> coinEffects = new Queue<CoinTextEffect>();
     [Range(8, 20)]
-    public int maxCoinTextEffect = 8;
+    public int maxCoinTextEffect;
 
     private readonly uint maxCoins = 9999;
     private uint curCoins = 0;
@@ -42,8 +42,8 @@ public class CoinManager : MonoBehaviour {
             curCoins += coin;
             CoinTextEffect effect = coinEffects.Dequeue();
             coinEffects.Enqueue(effect);
-            effect.ActivateTextEffect();
-            effect.ResetEffect(new Color(0,255,0), "+" + coin.ToString());
+            effect.ActivateTextEffect("+" + coin.ToString());
+            effect.ResetEffect(new Color(0,255,0));
             inGameUIMgr.GetCoinsLbl().text = curCoins.ToString();
         }
         
@@ -60,8 +60,8 @@ public class CoinManager : MonoBehaviour {
             curCoins -= coin;
             CoinTextEffect effect = coinEffects.Dequeue();
             coinEffects.Enqueue(effect);
-            effect.ActivateTextEffect();
-            effect.ResetEffect(new Color(0, 255, 0), "-" + coin.ToString());
+            effect.ActivateTextEffect("-" + coin.ToString());
+            effect.ResetEffect(new Color(0, 255, 0));
             inGameUIMgr.GetCoinsLbl().text = curCoins.ToString();
         }
     }

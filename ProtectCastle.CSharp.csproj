@@ -252,7 +252,10 @@
     <Compile Include="Assets\KojeomStudio\Scripts\Monster\MonsterGenerator.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\Monster\MonsterManager.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\Monster\SpawnDataFile.cs" />
+    <Compile Include="Assets\KojeomStudio\Scripts\PlanetHitTextEffect.cs" />
+    <Compile Include="Assets\KojeomStudio\Scripts\PlanetManager.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\PlayerAttackController.cs" />
+    <Compile Include="Assets\KojeomStudio\Scripts\TextEffect.cs" />
     <Compile Include="Assets\KojeomStudio\Scripts\UI\InGameUIManager.cs" />
   </ItemGroup>
   <ItemGroup>
