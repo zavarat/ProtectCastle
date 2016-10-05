@@ -44,14 +44,13 @@ public class PlanetManager : MonoBehaviour {
     {
         if (other.CompareTag("missile"))
         {
-            PlanetHitProcess();
-            Debug.Log("!! hit the planet");
+            PlanetHitProcess(other.GetComponent<MissileInfo>().attackPoint);
         }
     }
 
-    private void PlanetHitProcess()
+    private void PlanetHitProcess(int ap)
     {
-        int sum = planetCurHP - 10;
+        int sum = planetCurHP - ap;
         if (sum <= 0)
         {
             planetCurHP = 0;

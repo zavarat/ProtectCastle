@@ -14,6 +14,7 @@ public class CoinManager : MonoBehaviour {
     public int maxCoinTextEffect;
 
     private readonly uint maxCoins = 9999;
+    private readonly uint maxCoinsDigit = 4;
     private uint curCoins = 0;
 
     public void Init()
@@ -44,9 +45,20 @@ public class CoinManager : MonoBehaviour {
             coinEffects.Enqueue(effect);
             effect.ActivateTextEffect("+" + coin.ToString());
             effect.ResetEffect(new Color(0,255,0));
-            inGameUIMgr.GetCoinsLbl().text = curCoins.ToString();
+            inGameUIMgr.GetCoinsLbl().text = ToCoinString(curCoins.ToString());
         }
-        
+    }
+    private string ToCoinString(string coin)
+    {
+        string coinStr = coin;
+        uint coinDigit = (uint)coin.Length;
+        int zeroNum = (int)(maxCoinsDigit - coinDigit);
+        if (zeroNum < 0) zeroNum = 0;
+        for (int i = 0; i < zeroNum; i++)
+        {
+            coinStr = coinStr.Insert(0, "0");
+        }
+        return coinStr;
     }
     public void DecreaseCoins(uint coin)
     {

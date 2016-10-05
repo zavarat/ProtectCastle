@@ -8,6 +8,9 @@ public class MonsterManager : MonoBehaviour {
     public bool isSpeedType = false;
     private CoinManager coinMgr;
 
+    [Range(1, 100)]
+    public uint hasCoin;
+
     [SerializeField]
     private BT_base monsterAI;
 
@@ -42,9 +45,7 @@ public class MonsterManager : MonoBehaviour {
     private GameObject destroyEffect;
     public void DestroyProcess()
     {
-        if (isNormalType) coinMgr.IncreaseCoins(1);
-        else if (isAdvancedType) coinMgr.IncreaseCoins(2);
-        else if (isSpeedType) coinMgr.IncreaseCoins(3);
+        coinMgr.IncreaseCoins(hasCoin);
 
         monsterPrefab.GetComponent<MonsterController>().Revive();
         monsterPrefab.SetActive(false);

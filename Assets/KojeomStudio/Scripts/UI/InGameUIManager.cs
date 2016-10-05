@@ -24,4 +24,5 @@ public class InGameUIManager : MonoBehaviour {
     [SerializeField]
     private UILabel lbl_planetMaxHP;
     public UILabel GetPlanetMaxHpLbl() { return lbl_planetMaxHP; }
+
 }
