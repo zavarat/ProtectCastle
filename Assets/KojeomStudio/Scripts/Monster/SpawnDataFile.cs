@@ -7,7 +7,7 @@ public class SpawnDataFile : MonoBehaviour {
     private TextAsset spawnText;
     public List<Vector3> spawnCoordinates
     {
-        get { return _spawnCoordinates; }
+        get { return new List<Vector3>(_spawnCoordinates); }
     }
     private List<Vector3> _spawnCoordinates = new List<Vector3>();
     public int countCoords

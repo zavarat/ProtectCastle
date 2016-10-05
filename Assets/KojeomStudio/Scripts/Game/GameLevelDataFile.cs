@@ -15,7 +15,7 @@ public class GameLevelDataFile : MonoBehaviour {
     private TextAsset gameLevelText;
     public Queue<GameLevel> gameLevels
     {
-        get { return _gameLevels; }
+        get { return new Queue<GameLevel>(_gameLevels); }
     }
     private Queue<GameLevel> _gameLevels = new Queue<GameLevel>();
 
@@ -25,7 +25,13 @@ public class GameLevelDataFile : MonoBehaviour {
         gameLevelJsonObj = new JSONObject(gameLevelText.text);
         AccessData(gameLevelJsonObj);
     }
-  
+
+    public void ReleaseData()
+    {
+        gameLevelJsonObj.Clear();
+        _gameLevels.Clear();
+    }
+
     private void AccessData(JSONObject jsonObj)
     {
         switch (jsonObj.type)
