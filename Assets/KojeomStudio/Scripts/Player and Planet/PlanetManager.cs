@@ -48,6 +48,17 @@ public class PlanetManager : MonoBehaviour {
         }
     }
 
+
+    public void IncreaseCurHP(int point)
+    {
+        int sum = planetCurHP + point;
+        if (sum >= planetMaxHP) planetCurHP = planetMaxHP;
+        else if (sum < planetMaxHP)
+        {
+            planetCurHP = sum;
+        }
+    }
+
     private void PlanetHitProcess(int ap)
     {
         int sum = planetCurHP - ap;

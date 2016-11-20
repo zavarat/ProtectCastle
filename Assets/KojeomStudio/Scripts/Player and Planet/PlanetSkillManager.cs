@@ -25,6 +25,7 @@ public class PlanetSkillManager : MonoBehaviour {
 
     private readonly uint shieldCost = 50;
     private readonly uint healingCost = 30;
+    private readonly int healingPoint = 150;
 
     public void Skill_Shield()
     {
@@ -70,6 +71,7 @@ public class PlanetSkillManager : MonoBehaviour {
     }
     private IEnumerator HealingProcess()
     {
+        planetMgr.IncreaseCurHP(healingPoint);
         helaingEffect.SetActive(true);
         float coolTime = 20.0f;
         healingCoolTime.text = coolTime.ToString();
