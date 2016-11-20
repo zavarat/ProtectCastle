@@ -23,10 +23,15 @@ public class PlanetSkillManager : MonoBehaviour {
     private bool isShieldEnable = true;
     private bool isHealingEnable = true;
 
+    private readonly uint shieldCost = 50;
+    private readonly uint healingCost = 30;
+
     public void Skill_Shield()
     {
+        if (coinMgr.curCoins < shieldCost) return;
         if(isShieldEnable)
         {
+            coinMgr.DecreaseCoins(shieldCost);
             btn_Shield.isEnabled = false;
             isShieldEnable = false;
             StartCoroutine(ShieldProcess());
@@ -34,8 +39,10 @@ public class PlanetSkillManager : MonoBehaviour {
     }
     public void Skill_Healing()
     {
-        if(isHealingEnable)
+        if (coinMgr.curCoins < healingCost) return;
+        if (isHealingEnable)
         {
+            coinMgr.DecreaseCoins(healingCost);
             btn_Healing.isEnabled = false;
             isHealingEnable = false;
             StartCoroutine(HealingProcess());

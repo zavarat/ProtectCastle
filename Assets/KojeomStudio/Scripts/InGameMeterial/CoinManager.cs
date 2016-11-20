@@ -15,7 +15,11 @@ public class CoinManager : MonoBehaviour {
 
     private readonly uint maxCoins = 9999;
     private readonly uint maxCoinsDigit = 4;
-    private uint curCoins = 0;
+    private uint _curCoins = 0;
+    public uint curCoins
+    {
+        get { return _curCoins; }
+    }
 
     public void Init()
     {
@@ -33,19 +37,19 @@ public class CoinManager : MonoBehaviour {
 
     public void IncreaseCoins(uint coin)
     {
-        uint sum = coin + curCoins;
+        uint sum = coin + _curCoins;
         if(sum >= maxCoins)
         {
-            curCoins = maxCoins;
+            _curCoins = maxCoins;
             inGameUIMgr.GetCoinsLbl().text = "MAX";
         }else
         {
-            curCoins += coin;
+            _curCoins += coin;
             CoinTextEffect effect = coinEffects.Dequeue();
             coinEffects.Enqueue(effect);
             effect.ActivateTextEffect("+" + coin.ToString());
             effect.ResetEffect(new Color(0,255,0));
-            inGameUIMgr.GetCoinsLbl().text = ToCoinString(curCoins.ToString());
+            inGameUIMgr.GetCoinsLbl().text = ToCoinString(_curCoins.ToString());
         }
     }
     private string ToCoinString(string coin)
@@ -62,19 +66,19 @@ public class CoinManager : MonoBehaviour {
     }
     public void DecreaseCoins(uint coin)
     {
-        uint sum = curCoins - coin;
+        uint sum = _curCoins - coin;
         if(sum <= 0)
         {
-            curCoins = 0;
-            inGameUIMgr.GetCoinsLbl().text = "0";
+            _curCoins = 0;
+            inGameUIMgr.GetCoinsLbl().text = "0000";
         }else
         {
-            curCoins -= coin;
+            _curCoins -= coin;
             CoinTextEffect effect = coinEffects.Dequeue();
             coinEffects.Enqueue(effect);
             effect.ActivateTextEffect("-" + coin.ToString());
             effect.ResetEffect(new Color(0, 255, 0));
-            inGameUIMgr.GetCoinsLbl().text = curCoins.ToString();
+            inGameUIMgr.GetCoinsLbl().text = ToCoinString(_curCoins.ToString());
         }
     }
 }
