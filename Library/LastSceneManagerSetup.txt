@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/KojeomStudio/Scenes/InGame.unity
+- path: Assets/KojeomStudio/Scenes/main.unity
   isLoaded: 1
   isActive: 1
