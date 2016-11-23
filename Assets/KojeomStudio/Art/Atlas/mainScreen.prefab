@@ -53,9 +53,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 68f1eeed7d4775b41a567857315f4a8f, type: 2}
   mSprites:
+  - name: ch0
+    x: 0
+    y: 140
+    width: 219
+    height: 256
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 37
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ch1
+    x: 220
+    y: 152
+    width: 215
+    height: 244
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 41
+    paddingRight: 0
+    paddingTop: 12
+    paddingBottom: 0
   - name: title
     x: 0
-    y: 909
+    y: 397
     width: 561
     height: 115
     borderLeft: 0
@@ -67,8 +93,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 3
   - name: ui_b_01
-    x: 0
-    y: 424
+    x: 436
+    y: 195
     width: 80
     height: 80
     borderLeft: 0
@@ -80,8 +106,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_b_02
-    x: 121
-    y: 774
+    x: 401
+    y: 88
     width: 137
     height: 63
     borderLeft: 0
@@ -93,8 +119,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_b_03
-    x: 673
-    y: 774
+    x: 401
+    y: 24
     width: 137
     height: 63
     borderLeft: 0
@@ -106,8 +132,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_b_04
-    x: 121
-    y: 838
+    x: 220
+    y: 81
     width: 180
     height: 70
     borderLeft: 0
@@ -119,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_b_05
-    x: 302
-    y: 839
+    x: 743
+    y: 443
     width: 180
     height: 69
     borderLeft: 0
@@ -133,7 +159,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: ui_c_01
     x: 0
-    y: 667
+    y: 19
     width: 120
     height: 120
     borderLeft: 0
@@ -145,8 +171,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_c_02
-    x: 0
-    y: 788
+    x: 436
+    y: 276
     width: 120
     height: 120
     borderLeft: 0
@@ -158,8 +184,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_c_03
-    x: 924
-    y: 934
+    x: 121
+    y: 49
     width: 90
     height: 90
     borderLeft: 0
@@ -171,8 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_c_04
-    x: 0
-    y: 373
+    x: 781
+    y: 321
     width: 115
     height: 50
     borderLeft: 0
@@ -184,8 +210,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_g_01
-    x: 0
-    y: 505
+    x: 562
+    y: 35
     width: 80
     height: 80
     borderLeft: 0
@@ -197,8 +223,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_g_02
-    x: 845
-    y: 845
+    x: 562
+    y: 308
     width: 137
     height: 63
     borderLeft: 0
@@ -210,8 +236,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_g_03
-    x: 397
-    y: 774
+    x: 562
+    y: 244
     width: 137
     height: 63
     borderLeft: 0
@@ -223,8 +249,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_g_04
-    x: 562
-    y: 954
+    x: 220
+    y: 10
     width: 180
     height: 70
     borderLeft: 0
@@ -236,8 +262,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_g_05
-    x: 483
-    y: 839
+    x: 562
+    y: 372
     width: 180
     height: 69
     borderLeft: 0
@@ -249,8 +275,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_y_01
-    x: 0
-    y: 586
+    x: 700
+    y: 291
     width: 80
     height: 80
     borderLeft: 0
@@ -262,8 +288,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_y_02
-    x: 535
-    y: 774
+    x: 562
+    y: 180
     width: 137
     height: 63
     borderLeft: 0
@@ -275,8 +301,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_y_03
-    x: 259
-    y: 774
+    x: 562
+    y: 116
     width: 137
     height: 63
     borderLeft: 0
@@ -288,8 +314,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_y_04
-    x: 743
-    y: 954
+    x: 562
+    y: 442
     width: 180
     height: 70
     borderLeft: 0
@@ -301,8 +327,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_y_05
-    x: 664
-    y: 839
+    x: 743
+    y: 372
     width: 180
     height: 69
     borderLeft: 0
